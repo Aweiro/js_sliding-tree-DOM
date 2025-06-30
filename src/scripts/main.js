@@ -9,17 +9,9 @@ for (const key of tree) {
   key.firstChild.textContent = '';
   key.insertAdjacentElement('afterbegin', span);
 
-  let isOn = false;
-
   span.addEventListener('click', () => {
-    isOn = !isOn;
-
     const keys = key.querySelectorAll('ul');
 
-    if (isOn) {
-      keys.forEach((element) => (element.style.display = 'none'));
-    } else {
-      keys.forEach((element) => (element.style.display = 'block'));
-    }
+    keys.forEach((element) => (element.hidden = !element.hidden));
   });
 }
